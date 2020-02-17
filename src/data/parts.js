@@ -1,5 +1,6 @@
+// webpack method to make webpack aware of the img url
 const images = require.context('./images', true, /\.png$/);
-
+// json data
 const parts = {
   heads: [
     {
@@ -161,5 +162,4 @@ const parts = {
     },
   ],
 };
-export default parts
-;
+export default parts;
