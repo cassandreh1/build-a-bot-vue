@@ -1,5 +1,5 @@
-export default {
-  created() {
-    console.log('component created');
-  },
-};
+// export default {
+//   created() {
+//     console.log('component created');
+//   },
+// };
