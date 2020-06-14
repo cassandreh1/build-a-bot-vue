@@ -1,19 +1,21 @@
 <template>
   <div id="app">
-    <header>
-      <nav>
-        <ul>
-          <li class="nav-item">
-            <img class="logo" src="./assets/build-a-bot-logo.png"
-            alt="logo"/>
-            Build-a-bot
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <RobotBuilder />
-    </main>
+    <div class="container">
+      <header class="row">
+        <nav class="col-sm-12">
+          <ul>
+            <li class="nav-item">
+              <img class="logo" src="./assets/build-a-bot-logo.png"
+              alt="logo"/>
+              Build-a-bot
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main class="row">
+        <RobotBuilder />
+      </main>
+    </div>
   </div>
 </template>
 
@@ -29,6 +31,8 @@ export default {
 };
 </script>
 <style>
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~bootstrap-vue/dist/bootstrap-vue.css';
 body {
   background:  linear-gradient(to bottom, #555, #999);
   background-attachment: fixed;
@@ -42,12 +46,10 @@ main {
   margin: 0 auto;
   padding: 30px;
   background-color: white;
-  width: 1024px;
   min-height: 300px;
 }
 header {
   background-color: #999;
-  width: 1084px;
   margin: 0 auto;
 }
 ul {
@@ -63,5 +65,10 @@ ul {
 .logo {
   vertical-align: middle;
   height: 30px;
+}
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 0;
+  }
 }
 </style>

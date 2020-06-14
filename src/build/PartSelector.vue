@@ -70,11 +70,9 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .part {
   position: relative;
-  width:165px;
-  height:165px;
   border: 3px solid #aaa;
 }
 .sale {
@@ -95,7 +93,8 @@ export default {
   top: -25px;
 }
 .part img {
-  width:165px;
+  width: 8rem;
+  height: 8rem;
 }
 .top {
   border-bottom: none;
@@ -121,7 +120,7 @@ export default {
   top: -3px;
   left: -28px;
   width: 25px;
-  height: 171px;
+  height: 8.4rem;
 }
 .next-selector {
   position: absolute;
@@ -129,7 +128,7 @@ export default {
   top: -3px;
   right: -28px;
   width: 25px;
-  height: 171px;
+  height: 8.4rem;
 }
 .left .prev-selector:after,  .right .prev-selector:after{
   content: '\25B2'
@@ -149,30 +148,49 @@ export default {
 .left .prev-selector {
   top: -28px;
   left: -3px;
-  width: 144px;
+  width: 6.8rem;
   height: 25px;
 }
 .left .next-selector {
   top: auto;
   bottom: -28px;
   left: -3px;
-  width: 144px;
+  width: 6.8rem;
   height: 25px;
 }
 .right .prev-selector {
   top: -28px;
   left: 24px;
-  width: 144px;
+  width: 6.8rem;
   height: 25px;
 }
 .right .next-selector {
   top: auto;
   bottom: -28px;
   left: 24px;
-  width: 144px;
+  width: 6.8rem;
   height: 25px;
 }
 .highlight {
   border: 1px solid red;
+}
+@media screen and (max-width: 767px) {
+  .part {
+    width: 7rem;
+  }
+   .part img {
+      width: 7rem;
+      height: 7rem;
+    }
+  .prev-selector,
+  .next-selector {
+    height: 7.4rem;
+  }
+  .left .prev-selector,
+  .left .next-selector,
+  .right .prev-selector,
+  .right .next-selector  {
+      width: 5.6rem;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content col-sm-12">
     <div class="preview">
       <div class="preview-content">
         <div class="top-row">
@@ -17,7 +17,7 @@
           <button class="add-to-cart" @click="addToCart()">Add to Cart </button>
 
     </div>
-    <div class="top-row">
+    <div class="top-row col-sm-12">
         <!-- <div class="robot-name">
           {{selectedRobot.head.title}}
           <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
@@ -27,7 +27,7 @@
        position="top"
        @partSelected="part => selectedRobot.head = part"/>
     </div>
-    <div class="middle-row">
+    <div class="middle-row col-sm-12">
       <PartSelector
         :parts="availableParts.arms"
         position="left"
@@ -41,7 +41,7 @@
         position="right"
         @partSelected="part => selectedRobot.rightArm = part"/>
     </div>
-    <div class="bottom-row">
+    <div class="bottom-row col-sm-12">
       <PartSelector
       :parts="availableParts.bases"
       position="bottom"
@@ -116,17 +116,6 @@ export default {
 </script>
 // adding lang attribut to use sass
 <style lang="scss" scoped>
-.part {
-  position: relative;
-  width:165px;
-  height:165px;
-  border: 3px solid #aaa;
-}
-.part {
-  img {
-    width:165px;
-  }
-}
 .top-row {
   display:flex;
   justify-content: space-around;
@@ -237,8 +226,7 @@ td, th {
   border: 3px solid red;
 }
 .preview {
-  position: absolute;
-  top: -20px;
+  position: relative;
   right: 0;
   width: 210px;
   height: 210px;
