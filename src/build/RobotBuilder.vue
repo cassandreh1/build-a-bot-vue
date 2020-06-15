@@ -1,68 +1,78 @@
 <template>
   <div class="content col-sm-12">
-    <div class="preview">
-      <div class="preview-content">
-        <div class="top-row">
-          <img :src="selectedRobot.head.src"/>
-        </div>
-        <div class="middle-row">
-          <img :src="selectedRobot.leftArm.src" class="rotate-left"/>
-          <img :src="selectedRobot.torso.src"/>
-          <img :src="selectedRobot.rightArm.src" class="rotate-right"/>
-        </div>
-        <div class="bottom-row">
-          <img :src="selectedRobot.base.src"/>
-        </div>
-      </div>
-          <button class="add-to-cart" @click="addToCart()">Add to Cart </button>
-
-    </div>
-    <div class="top-row col-sm-12">
-        <!-- <div class="robot-name">
-          {{selectedRobot.head.title}}
-          <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
-        </div> -->
-       <PartSelector
-       :parts="availableParts.heads"
-       position="top"
-       @partSelected="part => selectedRobot.head = part"/>
-    </div>
-    <div class="middle-row col-sm-12">
-      <PartSelector
-        :parts="availableParts.arms"
-        position="left"
-        @partSelected="part => selectedRobot.leftArm = part"/>
-      <PartSelector
-        :parts="availableParts.torsos"
-        position="center"
-        @partSelected="part => selectedRobot.torso = part"/>
-      <PartSelector
-        :parts="availableParts.arms"
-        position="right"
-        @partSelected="part => selectedRobot.rightArm = part"/>
-    </div>
-    <div class="bottom-row col-sm-12">
-      <PartSelector
-      :parts="availableParts.bases"
-      position="bottom"
-      @partSelected="part => selectedRobot.base = part"/>
-    </div>
-    <div>
+    <div :hidden="showCart">
       <h1>Cart</h1>
       <table>
         <thead>
           <tr>
+            <th></th>
             <th>Robot</th>
             <th class="cost">Cost</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(robot, index) in cart" :key="index">
+            <td>
+              <div class="preview">
+                <div class="preview-content">
+                  <div class="top-row">
+                    <img :src="selectedRobot.head.src"/>
+                  </div>
+                  <div class="middle-row">
+                    <img :src="selectedRobot.leftArm.src" class="rotate-left"/>
+                    <img :src="selectedRobot.torso.src"/>
+                    <img :src="selectedRobot.rightArm.src" class="rotate-right"/>
+                  </div>
+                  <div class="bottom-row">
+                    <img :src="selectedRobot.base.src"/>
+                  </div>
+                </div>
+              </div>
+            </td>
             <td>{{ robot.head.title }}</td>
             <td class="cost"> {{ robot.cost }}</td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="top-row">
+        <PartSelector
+        :parts="availableParts.heads"
+        position="top"
+        @partSelected="part => selectedRobot.head = part"/>
+      </div>
+      <div class="middle-row">
+        <PartSelector
+          :parts="availableParts.arms"
+          position="left"
+          @partSelected="part => selectedRobot.leftArm = part"/>
+        <PartSelector
+          :parts="availableParts.torsos"
+          position="center"
+          @partSelected="part => selectedRobot.torso = part"/>
+        <PartSelector
+          :parts="availableParts.arms"
+          position="right"
+          @partSelected="part => selectedRobot.rightArm = part"/>
+      </div>
+      <div class="bottom-row">
+        <PartSelector
+        :parts="availableParts.bases"
+        position="bottom"
+        @partSelected="part => selectedRobot.base = part"/>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <h2>{{ selectedRobot.head.title }}</h2>
+      <p>{{ selectedRobot.head.description }}</p>
+      <label for="qty">QTY: </label>
+      <input type="number">
+      <br>
+      <button class="add-to-cart" @click="addToCart()">Add to Cart </button>
+    </div>
     </div>
   </div>
 </template>
@@ -86,6 +96,7 @@ export default {
         rightArm: {},
         base: {},
       },
+      showCart: true,
     };
   },
   mixins: [createdHookMixin],
@@ -101,8 +112,14 @@ export default {
       };
     },
   },
+  mounted() {
+    setTimeout(() => {
+      this.showCart = true;
+    }, 5000);
+  },
   methods: {
     addToCart() {
+      this.showCart = false;
       const robot = this.selectedRobot;
       const cost = robot.head.cost
       + robot.leftArm.cost

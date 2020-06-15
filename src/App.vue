@@ -9,6 +9,9 @@
               alt="logo"/>
               Build-a-bot
             </li>
+            <li class="nav-item">
+              <b-icon-bag-fill></b-icon-bag-fill>
+            </li>
           </ul>
         </nav>
       </header>

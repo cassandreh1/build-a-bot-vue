@@ -1,8 +1,8 @@
 <template>
   <div class="part" :class="position">
     <img :src="selectedPart.src" title="arm"/>
-    <button @click="selectPreviousPart()" class="prev-selector"></button>
-    <button @click="selectNextPart()" class="next-selector"></button>
+    <button @click="selectPreviousPart()" class="prev-selector btn btn-light"></button>
+    <button @click="selectNextPart()" class="next-selector btn btn-light"></button>
     <span class="sale" v-show="selectedPart.onSale">Sale!</span>
   </div>
 </template>
@@ -115,6 +115,7 @@ export default {
   transform: rotate(90deg);
 }
 .prev-selector {
+  border: 1px solid #212529;
   position: absolute;
   z-index:1;
   top: -3px;
@@ -123,6 +124,7 @@ export default {
   height: 8.4rem;
 }
 .next-selector {
+  border: 1px solid #212529;
   position: absolute;
   z-index:1;
   top: -3px;
