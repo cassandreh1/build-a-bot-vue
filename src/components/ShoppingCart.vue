@@ -36,7 +36,8 @@
           </tr>
           <tr v-if="items.length">
               <td>
-                  Subtotal: {{ calculateSubTotal | currency}}
+                  <span class="title">Subtotal:</span>
+                  <span class="content-right">{{ calculateSubTotal | currency}}</span>
               </td>
           </tr>
         </tbody>
@@ -112,11 +113,14 @@ td, th {
     float: left;
     margin-right: 10px;
 }
+.title {
+    font-weight: bold;
+}
 .details {
     float: right;
-    .title {
-        font-weight: bold;
-    }
+}
+.content-right {
+  float: right;
 }
 .preview-content {
   border: 1px solid #055d96;

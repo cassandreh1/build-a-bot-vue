@@ -1,6 +1,6 @@
 <template>
   <div class="col-sm-12">
-    <div class="row content">
+    <div class="row no-guttters content">
       <div class="col-sm-12 col-md-6 padding-top-bottom-20">
         <div class="top-row">
           <PartSelector
@@ -29,7 +29,7 @@
           @partSelected="part => selectedRobot.base = part"/>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6 padding-top-bottom-20">
+      <div class="col-sm-12 col-md-6 padding-top-bottom-20" id="product-details">
         <h1 class="blue-color">{{ selectedRobot.head.title }} -
           <span id="total-cost">{{ totalCost | currency }}</span></h1>
         <h4>Product details:</h4>
@@ -62,7 +62,7 @@
                 aria-describedby="addon-wrapping">
             </div>
               <div class="alert alert-danger" role="alert" v-show="isQtyValid">
-                Please entery a quantity.
+                Please enter a quantity.
               </div>
           </div>
           <div class="col-sm-12 col-md-6 button-wrapper">
@@ -95,7 +95,7 @@ export default {
       },
       totalCost: 0,
       showMore: false,
-      quantity: 0,
+      quantity: 1,
       isQtyValid: false,
     };
   },
@@ -118,6 +118,7 @@ export default {
         const { cost } = this.calculateCost();
         this.totalCost = cost;
         this.showMore = false;
+        this.quantity = 1;
       },
       deep: true,
     },
@@ -158,6 +159,7 @@ export default {
 }
 .button-wrapper {
   margin-top: 0;
+  padding-bottom: 50px;
   .add-to-cart.btn-warning {
     color: red;
     font-weight: bold;
@@ -276,10 +278,26 @@ h6 {
 }
 @media screen and (max-width: 767px) {
   .button-wrapper {
-    margin-top: 15px;
+    margin-top: 30px;
     .add-to-cart {
       width: 100%;
     }
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  #product-details {
+    padding-right: 0px;
+    padding-left: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .button-wrapper {
+      padding-left: 0 !important;
+  }
+}
+@media screen  and (min-width: 992px){
+  .add-to-cart {
+    width: 50%;
   }
 }
 </style>
