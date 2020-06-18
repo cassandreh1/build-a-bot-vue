@@ -128,6 +128,7 @@ main {
     margin-top: 1rem;
     color: #ffc107;
     font-weight: bold;
+    margin-bottom: 0;
   }
 }
 .card-body p {

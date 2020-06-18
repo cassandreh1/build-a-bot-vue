@@ -141,6 +141,7 @@ export default {
         this.isQtyValid = true;
         return;
       }
+      window.scrollTo(0, 0);
       this.isQtyValid = false;
       // eslint-disable-next-line prefer-const
       let { cost, robot } = this.calculateCost();
@@ -281,6 +282,10 @@ h6 {
     margin-top: 30px;
     .add-to-cart {
       width: 100%;
+    }
+    .btn-warning:hover {
+      background-color: #ffc107;
+      border-color: #ffc107;
     }
   }
 }
