@@ -17,7 +17,7 @@
       <div class="row no-gutters">
         <div class="col-sm-12" id="hero-section">
           <h1>Welcome to BUILD A ROBOT!</h1>
-          <p>Where you can build your own customize robot of you're likings.</p>
+          <p>Where you can custom build your robot.</p>
         </div>
       </div>
     <div class="container-fluid">
